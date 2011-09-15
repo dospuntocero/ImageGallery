@@ -1,34 +1,50 @@
-.gallery-layout {
-	margin:0;padding:0;
-	li {
-		float:left;
-		padding:10px;
-		list-style:none;
+#gallery-list{
+	&.gallery-layout {
 		margin:0;
-		
-		&:hover {
-			background:#ddd;
+		padding:0;
+		background: url('../images/ajax-loader-lg.gif') center no-repeat;
+		zoom:1;
+
+		li {
+			float:left;
+			list-style:none;
+
+			&:hover {
+				background:#ddd;
+			}
 		}
+
+		&:after{content:".";display:block;visibility:hidden;height:0;clear:both;}
+
+		&.loaded {
+			background:none;
+
+			li a {visibility:visible;}
+		}
+
+		li{
+			a {visibility:hidden;}
+		} 
 	}
 }
+
 #album-list{
 	ul{
 		li {
 			list-style:none;
 			overflow:hidden;
+			margin: 0em;
 			margin-bottom:20px;
 			clear:both;
+			padding: 0em;
+
 			
 			.defaultImage {
-				width:124px;
+				width:128px;
 				float:left;
 				
 				a {
 					display:block;
-					padding:12px;
-					width:100%;
-					text-align:center;
-					
 					&:hover {background:#ccc;}
 
 					img{
@@ -36,12 +52,11 @@
 						padding:0;
 					}
 				}
+				
 			}
 			
 			.galleryDetails {
-				width:300px;
-				float:left;
-				padding:12px 0 20px 40px;
+				margin-left: 150px;
 			}
 			
 			h4 {
@@ -110,25 +125,6 @@
 	}
 
 
-}
-
-
-.gallery-layout {
-	background: url('../images/ajax-loader-lg.gif') center no-repeat;
-	zoom:1;
-	
-	&:after{content:".";display:block;visibility:hidden;height:0;clear:both;}
-
-	&.loaded {
-		background:none;
-
-		li a {visibility:visible;}		
-	}
-	
-	li{
-		a {visibility:hidden;}
-	} 
-	
 }
 
 .album-nav {
